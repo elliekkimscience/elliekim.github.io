@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ellie Kim — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16233B;
+    --ink-soft:#4A5670;
+    --paper:#F6F3EB;
+    --paper-line:#E1DAC5;
+    --coral:#C1443B;
+    --teal:#2E6E63;
+    --gold:#B8874F;
+    --paper-card:#FFFEF9;
+    --max:1120px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Sans 3', sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    margin:0;
+    color:var(--ink);
+    letter-spacing:-0.01em;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--coral);
+    font-weight:600;
+  }
+  a{color:inherit;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 32px;}
+  img,svg{display:block;max-width:100%;}
+
+  /* ---------- NAV ---------- */
+  header.site-nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(246,243,235,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--paper-line);
+  }
+  .nav-inner{
+    max-width:var(--max); margin:0 auto; padding:16px 32px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .nav-mark{
+    font-family:'Fraunces', serif; font-weight:600; font-size:1.05rem;
+  }
+  .nav-links{
+    display:flex; gap:28px; list-style:none; margin:0; padding:0;
+    font-family:'IBM Plex Mono', monospace; font-size:0.75rem;
+    letter-spacing:0.06em; text-transform:uppercase;
+  }
+  .nav-links a{text-decoration:none; color:var(--ink-soft); transition:color .2s;}
+  .nav-links a:hover, .nav-links a:focus-visible{color:var(--coral);}
+  .nav-toggle{display:none; background:none; border:1px solid var(--ink); border-radius:4px; padding:8px 10px; font-family:'IBM Plex Mono',monospace; cursor:pointer;}
+
+  @media (max-width:760px){
+    .nav-links{
+      position:absolute; top:100%; left:0; right:0;
+      background:var(--paper); flex-direction:column; gap:0;
+      border-bottom:1px solid var(--paper-line);
+      max-height:0; overflow:hidden; transition:max-height .3s ease;
+    }
+    .nav-links.open{max-height:320px;}
+    .nav-links li{border-top:1px solid var(--paper-line);}
+    .nav-links a{display:block; padding:14px 32px;}
+    .nav-toggle{display:block;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:var(--ink);
+    color:var(--paper);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-inner{
+    max-width:var(--max); margin:0 auto; padding:96px 32px 72px;
+    display:grid; grid-template-columns:1.15fr 0.85fr; gap:48px; align-items:center;
+  }
+  .hero .eyebrow{color:#E7A79E;}
+  .hero h1{
+    font-size:clamp(3rem, 7vw, 5.2rem);
+    color:var(--paper);
+    margin:14px 0 20px;
+    line-height:0.98;
+  }
+  .hero p.lede{
+    font-size:1.15rem; max-width:46ch; color:#D9DCE6; margin:0 0 32px;
+  }
+  .hero-actions{display:flex; gap:16px; flex-wrap:wrap;}
+  .btn{
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem; letter-spacing:0.06em;
+    text-transform:uppercase; text-decoration:none; padding:13px 22px;
+    border-radius:2px; display:inline-block; transition:transform .15s, background .2s;
+    border:1px solid transparent;
+  }
+  .btn-primary{background:var(--coral); color:#fff;}
+  .btn-primary:hover{transform:translateY(-2px); background:#a83a32;}
+  .btn-ghost{border-color:#6A7590; color:var(--paper);}
+  .btn-ghost:hover{transform:translateY(-2px); border-color:var(--paper);}
+
+  .slide{
+    background:#0F1830; border:1px solid #2B3A5C; border-radius:4px;
+    padding:22px; position:relative;
+  }
+  .slide::before, .slide::after{
+    content:""; position:absolute; width:14px; height:14px;
+    border:1px solid #4A5C82;
+  }
+  .slide::before{top:8px; left:8px; border-right:none; border-bottom:none;}
+  .slide::after{bottom:8px; right:8px; border-left:none; border-top:none;}
+  .slide-label{font-family:'IBM Plex Mono',monospace; font-size:0.68rem; color:#8FA3C7; letter-spacing:0.08em; text-transform:uppercase;}
+  .slide-title{font-family:'Fraunces',serif; font-size:1.15rem; color:var(--paper); margin:10px 0 14px;}
+
+  /* ---------- STATS ---------- */
+  .stats{
+    background:var(--paper-card); border-top:1px solid var(--paper-line); border-bottom:1px solid var(--paper-line);
+  }
+  .stats-grid{
+    max-width:var(--max); margin:0 auto; padding:0 32px;
+    display:grid; grid-template-columns:repeat(4,1fr);
+  }
+  .stat{
+    padding:36px 20px; text-align:left; border-left:1px solid var(--paper-line);
+  }
+  .stat:first-child{border-left:none;}
+  .stat .num{font-family:'Fraunces',serif; font-size:2.2rem; font-weight:600; color:var(--coral);}
+  .stat .label{font-family:'IBM Plex Mono',monospace; font-size:0.68rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-soft); margin-top:4px;}
+  @media (max-width:760px){
+    .stats-grid{grid-template-columns:repeat(2,1fr);}
+    .stat{border-left:none; border-top:1px solid var(--paper-line);}
+    .stat:nth-child(odd){border-left:none;}
+  }
+
+  /* ---------- SECTION GENERIC ---------- */
+  section{padding:96px 0;}
+  .section-head{max-width:640px; margin-bottom:52px;}
+  .section-head h2{font-size:clamp(2rem,4vw,2.6rem); margin-top:10px;}
+  .section-head p{color:var(--ink-soft); margin-top:14px; font-size:1.05rem;}
+  .fade{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease;}
+  .fade.in{opacity:1; transform:translateY(0);}
+
+  /* ---------- RESEARCH ---------- */
+  .research{
+    background:
+      linear-gradient(var(--paper) 1px, transparent 1px) 0 0/100% 34px,
+      var(--paper);
+    position:relative;
+  }
+  .research::before{
+    content:""; position:absolute; inset:0;
+    background-image:
+      linear-gradient(90deg, rgba(22,35,59,0.045) 1px, transparent 1px),
+      linear-gradient(rgba(22,35,59,0.045) 1px, transparent 1px);
+    background-size:34px 34px;
+    pointer-events:none;
+  }
+  .research .wrap{position:relative;}
+  .timeline{display:flex; flex-direction:column; gap:0;}
+  .specimen{
+    display:grid; grid-template-columns:150px 1fr; gap:32px;
+    padding:32px 0; border-top:1px solid var(--paper-line);
+  }
+  .timeline .specimen:last-of-type{border-bottom:1px solid var(--paper-line);}
+  .specimen-date{
+    font-family:'IBM Plex Mono',monospace; font-size:0.8rem; color:var(--teal); font-weight:600; padding-top:4px;
+  }
+  .specimen-card{
+    background:var(--paper-card); border:1px solid var(--paper-line); border-radius:3px; padding:26px 28px; position:relative;
+  }
+  .specimen-tag{
+    font-family:'IBM Plex Mono',monospace; font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--ink-soft); margin-bottom:8px;
+  }
+  .specimen-card h3{font-size:1.3rem; margin-bottom:10px; line-height:1.25;}
+  .specimen-card p{margin:0; color:var(--ink-soft);}
+  .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:52px;}
+  .tag{
+    font-family:'IBM Plex Mono',monospace; font-size:0.72rem; letter-spacing:0.03em;
+    background:#EFE9D8; color:var(--ink); padding:6px 12px; border-radius:20px; border:1px solid var(--paper-line);
+  }
+  .research-awards{
+    margin-top:56px; padding-top:40px; border-top:1px dashed var(--paper-line);
+  }
+  .research-awards h3{font-family:'IBM Plex Mono',monospace; font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-soft); font-weight:600; margin-bottom:20px;}
+  .award-row{display:flex; justify-content:space-between; gap:20px; padding:12px 0; border-top:1px solid var(--paper-line); font-size:0.98rem;}
+  .award-row:last-child{border-bottom:1px solid var(--paper-line);}
+  .award-row .yr{font-family:'IBM Plex Mono',monospace; color:var(--coral); font-size:0.85rem; white-space:nowrap;}
+
+  @media (max-width:700px){
+    .specimen{grid-template-columns:1fr; gap:10px;}
+  }
+
+  /* ---------- LEADERSHIP ---------- */
+  .leadership{background:var(--ink); color:var(--paper);}
+  .leadership .eyebrow{color:#E7A79E;}
+  .leadership .section-head p{color:#B9C0D4;}
+  .lead-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:#2B3A5C; border:1px solid #2B3A5C;}
+  .lead-card{background:var(--ink); padding:30px 26px;}
+  .lead-role{font-family:'IBM Plex Mono',monospace; font-size:0.68rem; letter-spacing:0.07em; text-transform:uppercase; color:var(--gold);}
+  .lead-org{font-family:'Fraunces',serif; font-size:1.25rem; margin:10px 0 10px; line-height:1.2;}
+  .lead-card p{color:#B9C0D4; font-size:0.93rem; margin:0;}
+  @media (max-width:900px){.lead-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:600px){.lead-grid{grid-template-columns:1fr;}}
+
+  /* ---------- MUSIC ---------- */
+  .music{position:relative; overflow:hidden;}
+  .music-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;}
+  .staff{width:100%; height:auto; opacity:0.9;}
+  .music-body p{color:var(--ink-soft); margin:0 0 16px;}
+  .music-highlights{list-style:none; margin:24px 0 0; padding:0; display:flex; flex-direction:column; gap:14px;}
+  .music-highlights li{
+    display:flex; gap:14px; align-items:baseline; font-size:0.98rem; border-top:1px solid var(--paper-line); padding-top:14px;
+  }
+  .music-highlights li .yr{font-family:'IBM Plex Mono',monospace; color:var(--teal); font-size:0.82rem; min-width:96px;}
+  @media (max-width:800px){.music-grid{grid-template-columns:1fr;}}
+
+  /* ---------- SERVICE ---------- */
+  .service{background:var(--paper-card); border-top:1px solid var(--paper-line); border-bottom:1px solid var(--paper-line);}
+  .service-list{display:grid; grid-template-columns:1fr 1fr; gap:0; border-top:1px solid var(--paper-line); border-left:1px solid var(--paper-line);}
+  .service-item{border-right:1px solid var(--paper-line); border-bottom:1px solid var(--paper-line); padding:26px 28px;}
+  .service-item .org{font-family:'Fraunces',serif; font-size:1.1rem; margin-bottom:6px;}
+  .service-item .role{font-family:'IBM Plex Mono',monospace; font-size:0.7rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--coral); margin-bottom:10px;}
+  .service-item p{margin:0; color:var(--ink-soft); font-size:0.92rem;}
+  @media (max-width:700px){.service-list{grid-template-columns:1fr;}}
+
+  /* ---------- HONORS ---------- */
+  .honors-grid{columns:2; column-gap:48px;}
+  .honors-grid ul{list-style:none; margin:0; padding:0;}
+  .honors-grid li{
+    break-inside:avoid; padding:14px 0; border-top:1px solid var(--paper-line); font-size:0.98rem;
+  }
+  @media (max-width:700px){.honors-grid{columns:1;}}
+
+  /* ---------- FOOTER / CONTACT ---------- */
+  footer{background:var(--ink); color:var(--paper); padding:80px 0 40px;}
+  .contact-grid{display:grid; grid-template-columns:1.2fr 1fr; gap:40px; align-items:end; padding-bottom:56px; border-bottom:1px solid #2B3A5C;}
+  footer h2{color:var(--paper); font-size:clamp(2rem,5vw,3rem);}
+  footer .eyebrow{color:#E7A79E;}
+  .contact-links{display:flex; flex-direction:column; gap:14px; font-family:'IBM Plex Mono',monospace; font-size:0.95rem;}
+  .contact-links a{text-decoration:none; border-bottom:1px solid #4A5C82; padding-bottom:2px; width:fit-content;}
+  .contact-links a:hover{border-color:var(--coral); color:#F0A79E;}
+  .fine{display:flex; justify-content:space-between; padding-top:28px; font-family:'IBM Plex Mono',monospace; font-size:0.72rem; color:#8291AE; flex-wrap:wrap; gap:10px;}
+  @media (max-width:700px){.contact-grid{grid-template-columns:1fr;}}
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    .fade{opacity:1; transform:none; transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <div class="nav-mark">Ellie Kim</div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">Menu</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#research">Research</a></li>
+      <li><a href="#leadership">Leadership</a></li>
+      <li><a href="#music">Music</a></li>
+      <li><a href="#service">Service</a></li>
+      <li><a href="#honors">Honors</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">Little Rock, Arkansas — Class of 2027</div>
+      <h1>Ellie Kim</h1>
+      <p class="lede">Cancer biology researcher, orchestral violinist, and nonprofit founder working at the intersection of laboratory science, public health, and community care.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#research">View research log</a>
+        <a class="btn btn-ghost" href="mailto:elliekwonkim@gmail.com">Contact</a>
+      </div>
+    </div>
+    <div class="slide">
+      <div class="slide-label">Specimen · Active study</div>
+      <div class="slide-title">HepG2 liver cancer cells<br>PFOA + arsenic co-exposure</div>
+      <svg viewBox="0 0 260 140" width="100%" height="auto">
+        <circle cx="130" cy="70" r="58" fill="none" stroke="#41567E" stroke-width="1.5"/>
+        <circle cx="130" cy="70" r="42" fill="none" stroke="#2E6E63" stroke-width="1" stroke-dasharray="3 4"/>
+        <circle cx="102" cy="58" r="7" fill="#C1443B" fill-opacity="0.75"/>
+        <circle cx="146" cy="80" r="9" fill="#2E6E63" fill-opacity="0.6"/>
+        <circle cx="128" cy="42" r="5" fill="#B8874F" fill-opacity="0.8"/>
+        <circle cx="158" cy="52" r="4" fill="#C1443B" fill-opacity="0.5"/>
+        <circle cx="108" cy="92" r="6" fill="#41567E" fill-opacity="0.7"/>
+      </svg>
+      <div class="slide-label" style="margin-top:6px;">UAMS · Aug 2023 – Present</div>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stats-grid">
+    <div class="stat"><div class="num">4.34</div><div class="label">Weighted GPA</div></div>
+    <div class="stat"><div class="num">1540</div><div class="label">SAT</div></div>
+    <div class="stat"><div class="num">1,000+</div><div class="label">Community service hours</div></div>
+    <div class="stat"><div class="num">3</div><div class="label">Research years at UAMS</div></div>
+  </div>
+</div>
+
+<section class="research" id="research">
+  <div class="wrap">
+    <div class="section-head fade">
+      <div class="eyebrow">Research log</div>
+      <h2>Three years at the bench</h2>
+      <p>Since 2023, ongoing work at the University of Arkansas for Medical Sciences tracing how environmental toxicants — PFOA and arsenic — affect cancer cell lines, moving from single-compound assays toward combined-exposure mechanisms.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="specimen fade">
+        <div class="specimen-date">2023 – 2024</div>
+        <div class="specimen-card">
+          <div class="specimen-tag">Project 01 · Pancreatic cancer cell lines</div>
+          <h3>PFOA toxicity in human pancreatic cancer cells</h3>
+          <p>Quantified the cytotoxic effects of PFOA using MTT assays, Oil Red O staining, and spectrophotometric analysis to characterize dose-dependent cell response.</p>
+        </div>
+      </div>
+      <div class="specimen fade">
+        <div class="specimen-date">2024 – 2025</div>
+        <div class="specimen-card">
+          <div class="specimen-tag">Project 02 · Pancreatic cancer cell lines</div>
+          <h3>Arsenic-induced gene expression changes</h3>
+          <p>Analyzed arsenic-driven changes in gene expression in human pancreatic cancer cells using qRT-PCR, pairing lab work with data visualization to communicate findings.</p>
+        </div>
+      </div>
+      <div class="specimen fade">
+        <div class="specimen-date">2025 – Present</div>
+        <div class="specimen-card">
+          <div class="specimen-tag">Project 03 · HepG2 liver cancer cells</div>
+          <h3>PFOA &amp; arsenic synergistic toxicity</h3>
+          <p>Investigating the combined toxicity of PFOA and arsenic on HepG2 liver cancer cell lines to characterize synergistic mechanisms of harm.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tags fade">
+      <span class="tag">Cell culture</span>
+      <span class="tag">qRT-PCR</span>
+      <span class="tag">MTT assay</span>
+      <span class="tag">Oil Red O staining</span>
+      <span class="tag">Spectrophotometry</span>
+      <span class="tag">Introductory immunoblotting</span>
+      <span class="tag">Scientific poster presentation</span>
+    </div>
+
+    <div class="research-awards fade">
+      <h3>Research recognition</h3>
+      <div class="award-row"><span>ISEF Finalist, with full scholarship</span><span class="yr">2026</span></div>
+      <div class="award-row"><span>CARSEF Regional Science Fair — 1st Place</span><span class="yr">2026</span></div>
+      <div class="award-row"><span>Society for In Vitro Biology Award</span><span class="yr">2026</span></div>
+      <div class="award-row"><span>School Science Fair — 1st Place</span><span class="yr">2025 &amp; 2026</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="leadership" id="leadership">
+  <div class="wrap">
+    <div class="section-head fade">
+      <div class="eyebrow">Leadership roster</div>
+      <h2>Organizations led</h2>
+      <p>Currently leading seven student organizations across health science, academics, and cultural life — from a 400-member honor society chapter to a nonprofit with international reach.</p>
+    </div>
+    <div class="lead-grid fade">
+      <div class="lead-card">
+        <div class="lead-role">President &amp; Founder</div>
+        <div class="lead-org">Hands of Hope Project</div>
+        <p>501(c)(3) nonprofit donating craft kits and care packages to children's hospitals. Grown to 7+ international chapters, 700+ kits donated, 250+ service hours logged.</p>
+      </div>
+      <div class="lead-card">
+        <div class="lead-role">President</div>
+        <div class="lead-org">Future Health Professionals (HOSA)</div>
+        <p>Elected to a two-year term leading a nationally recognized health sciences career organization; mentors members for HOSA competitive events.</p>
+      </div>
+      <div class="lead-card">
+        <div class="lead-role">President</div>
+        <div class="lead-org">National Beta Club</div>
+        <p>Elected by peers to lead a 400+ member chapter, overseeing volunteer projects and community service initiatives school-wide.</p>
+      </div>
+      <div class="lead-card">
+        <div class="lead-role">President</div>
+        <div class="lead-org">Key Club</div>
+        <p>Elected by peers to lead a 30+ member chapter, coordinating community service and academic-excellence programming.</p>
+      </div>
+      <div class="lead-card">
+        <div class="lead-role">Vice President</div>
+        <div class="lead-org">National Honor Society</div>
+        <p>Helps lead a 300+ member chapter, overseeing mentoring programs and civic leadership events.</p>
+      </div>
+      <div class="lead-card">
+        <div class="lead-role">President</div>
+        <div class="lead-org">Korean Club</div>
+        <p>Leads monthly cultural events celebrating Korean heritage and fostering cross-cultural awareness among the student body.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="music" id="music">
+  <div class="wrap">
+    <div class="music-grid">
+      <div class="music-body fade">
+        <div class="eyebrow">Performance</div>
+        <h2>Thirteen years of violin</h2>
+        <p>1st Violinist with the Arkansas Symphony Youth Orchestra since an 8th-grade competitive audition, with recognition at the All-Region and All-State level.</p>
+        <ul class="music-highlights">
+          <li><span class="yr">Dec 2024</span><span>Featured guest soloist at a City of Little Rock–sponsored public downtown event.</span></li>
+          <li><span class="yr">2023 – Present</span><span>1st Violinist, Arkansas Symphony Youth Orchestra; weekly rehearsals and public concerts.</span></li>
+          <li><span class="yr">2022 – Present</span><span>Performs recitals for residents at Presbyterian Village Nursing Home.</span></li>
+          <li><span class="yr">Recognition</span><span>All-Region and All-State Orchestra selection.</span></li>
+        </ul>
+      </div>
+      <svg class="staff fade" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="#41567E" stroke-width="1" opacity="0.55">
+          <line x1="10" y1="30" x2="390" y2="30"/>
+          <line x1="10" y1="55" x2="390" y2="55"/>
+          <line x1="10" y1="80" x2="390" y2="80"/>
+          <line x1="10" y1="105" x2="390" y2="105"/>
+          <line x1="10" y1="130" x2="390" y2="130"/>
+        </g>
+        <g stroke="#41567E" stroke-width="1" opacity="0.3">
+          <line x1="10" y1="150" x2="390" y2="150"/>
+          <line x1="10" y1="175" x2="390" y2="175"/>
+          <line x1="10" y1="200" x2="390" y2="200"/>
+        </g>
+        <circle cx="60" cy="90" r="6" fill="#C1443B"/>
+        <circle cx="120" cy="60" r="6" fill="#2E6E63"/>
+        <circle cx="180" cy="105" r="6" fill="#B8874F"/>
+        <circle cx="240" cy="70" r="6" fill="#C1443B"/>
+        <circle cx="300" cy="45" r="6" fill="#2E6E63"/>
+        <circle cx="350" cy="90" r="6" fill="#B8874F"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="service" id="service">
+  <div class="wrap">
+    <div class="section-head fade">
+      <div class="eyebrow">Service record</div>
+      <h2>Where the hours went</h2>
+      <p>Recurring, hands-on service work with children, patients, and peers across Little Rock — most of it returned to week after week rather than one-off.</p>
+    </div>
+    <div class="service-list fade">
+      <div class="service-item">
+        <div class="org">Camp Aldersgate</div>
+        <div class="role">Assistant Counselor · 500+ hrs</div>
+        <p>Supports children ages 9–14 with epilepsy, ADHD, autism, and asthma across multiple weeklong sessions.</p>
+      </div>
+      <div class="service-item">
+        <div class="org">Museum of Discovery</div>
+        <div class="role">Camp Counselor</div>
+        <p>Leads weeklong summer camp sessions for children, focused on safety, inclusion, and hands-on engagement.</p>
+      </div>
+      <div class="service-item">
+        <div class="org">Baptist Health</div>
+        <div class="role">Volunteer · 150+ hrs</div>
+        <p>Participates in peer-led health education and patient support initiatives.</p>
+      </div>
+      <div class="service-item">
+        <div class="org">Health Information Project</div>
+        <div class="role">Volunteer Educator · 100+ hrs</div>
+        <p>Delivers health lessons to freshmen at Little Rock Central High School as a trained peer educator.</p>
+      </div>
+      <div class="service-item">
+        <div class="org">Best Buddies</div>
+        <div class="role">Secretary</div>
+        <p>Supports program logistics and communications for a peer-friendship organization.</p>
+      </div>
+      <div class="service-item">
+        <div class="org">UAMS Cancer Institute Walk</div>
+        <div class="role">Volunteer · May 2023 &amp; 2024</div>
+        <p>Supported event logistics and engaged directly with cancer survivors and their families.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="honors">
+  <div class="wrap">
+    <div class="section-head fade">
+      <div class="eyebrow">Honors</div>
+      <h2>Additional awards</h2>
+    </div>
+    <div class="honors-grid fade">
+      <ul>
+        <li>HOSA International Leadership Conference — 1st Place, 2026</li>
+        <li>HOSA ILC Finalist with scholarship, 2026</li>
+        <li>HOSA State Leadership Conference — 2nd Place</li>
+        <li>Model UN — Best Position Paper &amp; Honorable Mention, 2024–2025</li>
+        <li>TOPIK Korean Language Proficiency Test — Level II</li>
+        <li>U.S. Soccer Referee Certification (FIFA)</li>
+        <li>National Honor Society &amp; National Beta Club</li>
+        <li>President's Award for Academic Excellence</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <div class="eyebrow">Get in touch</div>
+        <h2>Let's talk research,<br>music, or service.</h2>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:elliekwonkim@gmail.com">elliekwonkim@gmail.com</a>
+        <a href="#">Résumé (PDF) — link here</a>
+        <a href="#">LinkedIn — link here</a>
+        <span style="color:#8291AE; font-size:0.9rem; font-family:'Source Sans 3',sans-serif;">Little Rock, Arkansas</span>
+      </div>
+    </div>
+    <div class="fine">
+      <span>© 2026 Ellie Kim</span>
+      <span>Template — swap in a headshot, live links, and research photos before publishing.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce && 'IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {threshold:0.12});
+    document.querySelectorAll('.fade').forEach(el=>io.observe(el));
+  } else {
+    document.querySelectorAll('.fade').forEach(el=>el.classList.add('in'));
+  }
+</script>
+
+</body>
+</html>
