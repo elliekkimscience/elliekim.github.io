@@ -1,697 +1,204 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ellie Kim — Portfolio</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Ellie Kim — student researcher, nonprofit founder, community leader, and violinist in Little Rock, Arkansas.">
+<title>Ellie Kim | Student Researcher • Founder • Violinist</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --ink:#16233B;
-    --ink-soft:#4A5670;
-    --paper:#F6F3EB;
-    --paper-line:#E1DAC5;
-    --coral:#C1443B;
-    --teal:#2E6E63;
-    --gold:#B8874F;
-    --paper-card:#FFFEF9;
-    --max:1120px;
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'Source Sans 3', sans-serif;
-    font-size:16px;
-    line-height:1.55;
-    -webkit-font-smoothing:antialiased;
-  }
-  h1,h2,h3{
-    font-family:'Fraunces', serif;
-    margin:0;
-    color:var(--ink);
-    letter-spacing:-0.01em;
-  }
-  .eyebrow{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:1.05rem;
-    letter-spacing:0.1em;
-    text-transform:uppercase;
-    color:var(--coral);
-    font-weight:700;
-  }
-  a{color:inherit;}
-  .wrap{max-width:var(--max); margin:0 auto; padding:0 32px;}
-  img,svg{display:block;max-width:100%;}
+:root{
+  --navy:#10213f; --blue:#365b8c; --sky:#dfeaf5; --cream:#f7f5ef; --white:#fff;
+  --ink:#18243a; --muted:#667085; --line:#dfe3e8; --sage:#dfe9df; --rose:#f2e2df;
+  --gold:#c7a667; --max:1180px; --shadow:0 18px 55px rgba(16,33,63,.10);
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;color:var(--ink);background:var(--cream);font-family:"DM Sans",sans-serif;line-height:1.65}
+a{color:inherit} img{max-width:100%;display:block}
+.wrap{width:min(var(--max),calc(100% - 48px));margin:auto}
+nav{position:sticky;top:0;z-index:50;background:rgba(247,245,239,.88);backdrop-filter:blur(16px);border-bottom:1px solid rgba(16,33,63,.08)}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between}.brand{font-family:Manrope;font-weight:800;letter-spacing:-.03em;font-size:1.12rem}.links{display:flex;gap:25px;font-size:.88rem;font-weight:600}.links a{text-decoration:none;color:#4d5c73}.links a:hover{color:var(--blue)}
+.hero{min-height:760px;background:linear-gradient(120deg,#10213f 0%,#18345f 58%,#365b8c 100%);color:white;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;width:520px;height:520px;border:1px solid rgba(255,255,255,.12);border-radius:50%;right:-120px;top:-120px;box-shadow:0 0 0 85px rgba(255,255,255,.025),0 0 0 170px rgba(255,255,255,.018)}
+.hero-grid{min-height:688px;display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:center;position:relative}
+.kicker{text-transform:uppercase;letter-spacing:.18em;font-weight:700;font-size:.78rem;color:#b9cde8}
+h1,h2,h3{font-family:Manrope,sans-serif;margin:0;letter-spacing:-.035em}h1{font-size:clamp(4rem,8vw,7.2rem);line-height:.9;margin:15px 0 26px}h2{font-size:clamp(2.2rem,4vw,3.6rem);line-height:1.05}h3{line-height:1.2}
+.lede{font-size:1.2rem;color:#d7e2f0;max-width:610px;margin-bottom:34px}.hero-buttons{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-block;text-decoration:none;border-radius:999px;padding:13px 21px;font-weight:700;font-size:.9rem}.primary{background:white;color:var(--navy)}.secondary{border:1px solid rgba(255,255,255,.45);color:white}
+.identity-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:28px;padding:28px;box-shadow:0 30px 80px rgba(0,0,0,.16)}
+.portrait{aspect-ratio:4/4.5;border-radius:20px;background:linear-gradient(145deg,#e7edf5,#b8c9df);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.portrait img{width:100%;height:100%;object-fit:cover}.placeholder{padding:30px;text-align:center;color:#425b7c}.placeholder strong{display:block;font-size:1.1rem;margin-bottom:5px}
+.identity-meta{display:flex;justify-content:space-between;gap:16px;margin-top:20px;color:#dce6f2;font-size:.9rem}
+.stats{margin-top:-44px;position:relative;z-index:4}.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);background:white;border-radius:20px;box-shadow:var(--shadow);overflow:hidden}.stat{padding:27px 28px;border-right:1px solid var(--line)}.stat:last-child{border:0}.num{font:800 2rem Manrope;color:var(--navy)}.label{font-size:.82rem;color:var(--muted);margin-top:3px}
+section{padding:105px 0}.section-head{display:grid;grid-template-columns:.72fr 1.28fr;gap:50px;margin-bottom:50px;align-items:end}.section-head p{margin:0;color:var(--muted);font-size:1.04rem}.eyebrow{font-size:.76rem;letter-spacing:.15em;text-transform:uppercase;font-weight:800;color:var(--blue);margin-bottom:11px}
+.feature-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:24px}.feature,.card{background:white;border:1px solid var(--line);border-radius:24px;box-shadow:0 10px 30px rgba(16,33,63,.045)}.feature{padding:38px}.feature-top{display:flex;justify-content:space-between;gap:20px;align-items:start}.date{font-size:.8rem;color:var(--blue);font-weight:700;white-space:nowrap}.feature h3{font-size:1.7rem;margin:10px 0 13px}.feature p{color:var(--muted)}.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}.tag{background:#eef3f8;border-radius:999px;padding:7px 11px;font-size:.76rem;font-weight:700;color:#425b7c}
+.side-stack{display:grid;gap:24px}.mini{padding:27px}.mini h3{font-size:1.18rem;margin:8px 0}.mini p{color:var(--muted);font-size:.93rem;margin-bottom:0}
+.dark-section{background:var(--navy);color:white}.dark-section .eyebrow{color:#a9c5e5}.dark-section .section-head p{color:#b9c7d9}.impact-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:24px}.impact-main{border-radius:26px;background:linear-gradient(145deg,#274c79,#365b8c);padding:42px;min-height:440px;display:flex;flex-direction:column;justify-content:space-between}.impact-main .big{font:800 clamp(3.5rem,8vw,6.5rem) Manrope;letter-spacing:-.06em;line-height:.9}.impact-main p{max-width:600px;color:#dce7f4}.impact-small{display:grid;grid-template-columns:1fr 1fr;gap:18px}.impact-tile{background:#172d50;border:1px solid #29466d;border-radius:22px;padding:25px}.impact-tile .metric{font:800 1.8rem Manrope;color:white}.impact-tile .small{font-size:.82rem;color:#afc0d6;margin-top:7px}
+.lead-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}.lead{background:#152947;border:1px solid #29415f;border-radius:22px;padding:25px}.role{font-size:.72rem;text-transform:uppercase;letter-spacing:.13em;color:#a9c5e5;font-weight:800}.lead h3{margin:9px 0;font-size:1.16rem}.lead p{color:#b7c5d7;font-size:.9rem;margin-bottom:0}
+.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.service-card{padding:27px}.service-card .metric{font:800 2rem Manrope;color:var(--blue)}.service-card h3{font-size:1.12rem;margin:7px 0}.service-card p{color:var(--muted);font-size:.9rem}
+.music-band{background:linear-gradient(135deg,var(--rose),#f8efe8);border-radius:30px;padding:48px;display:grid;grid-template-columns:.85fr 1.15fr;gap:45px;align-items:center}.music-art{min-height:300px;border-radius:22px;background:var(--navy);position:relative;overflow:hidden}.music-art:before,.music-art:after{content:"";position:absolute;left:0;right:0;border-top:1px solid rgba(255,255,255,.28);box-shadow:0 38px 0 rgba(255,255,255,.28),0 76px 0 rgba(255,255,255,.28),0 114px 0 rgba(255,255,255,.28);top:75px}.note{position:absolute;width:18px;height:14px;background:var(--gold);border-radius:50%;transform:rotate(-20deg)}.n1{left:22%;top:120px}.n2{left:45%;top:82px}.n3{left:68%;top:158px}.n4{left:80%;top:105px}.music-copy p{color:#645c5b}.music-list{display:grid;gap:10px;margin-top:22px}.music-list div{border-top:1px solid rgba(16,33,63,.13);padding-top:10px;font-size:.92rem}
+.honors{background:white}.honor-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.honor{border:1px solid var(--line);border-radius:15px;padding:18px 20px;display:flex;gap:16px;align-items:flex-start}.year{font-weight:800;color:var(--blue);min-width:48px}.honor strong{display:block}.honor span{color:var(--muted);font-size:.88rem}
+.skills{display:flex;gap:10px;flex-wrap:wrap}.skill{background:white;border:1px solid var(--line);padding:10px 14px;border-radius:999px;font-size:.85rem;font-weight:600}
+footer{background:#0b1930;color:white;padding:70px 0 32px}.footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end}.footer-grid h2{font-size:clamp(2rem,5vw,4rem)}.contact{display:flex;flex-direction:column;align-items:flex-start;gap:12px}.contact a{text-decoration:none;border-bottom:1px solid #6680a3}.fine{margin-top:55px;padding-top:20px;border-top:1px solid #263a58;color:#8ea0ba;font-size:.78rem;display:flex;justify-content:space-between;gap:20px}
+.reveal{opacity:0;transform:translateY(15px);transition:.6s}.reveal.show{opacity:1;transform:none}
+@media(max-width:850px){.links{display:none}.hero-grid,.section-head,.feature-grid,.impact-grid,.music-band,.footer-grid{grid-template-columns:1fr}.hero-grid{padding:80px 0}.identity-card{max-width:520px}.stat-grid{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}.lead-grid,.service-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.wrap{width:min(100% - 28px,var(--max))}h1{font-size:4rem}.hero{min-height:auto}.stats{margin-top:-25px}.stat-grid,.lead-grid,.service-grid,.impact-small,.honor-grid{grid-template-columns:1fr}.stat{border-right:0;border-bottom:1px solid var(--line)!important}.impact-main,.music-band{padding:28px}section{padding:75px 0}.identity-meta{flex-direction:column}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}}
 
-  /* ---------- NAV ---------- */
-  header.site-nav{
-    position:sticky; top:0; z-index:50;
-    background:rgba(246,243,235,0.92);
-    backdrop-filter:blur(6px);
-    border-bottom:1px solid var(--paper-line);
-  }
-  .nav-inner{
-    max-width:var(--max); margin:0 auto; padding:16px 32px;
-    display:flex; align-items:center; justify-content:space-between;
-  }
-  .nav-mark{
-    font-family:'Fraunces', serif; font-weight:600; font-size:1.05rem;
-  }
-  .nav-links{
-    display:flex; gap:28px; list-style:none; margin:0; padding:0;
-    font-family:'IBM Plex Mono', monospace; font-size:0.75rem;
-    letter-spacing:0.06em; text-transform:uppercase;
-  }
-  .nav-links a{text-decoration:none; color:var(--ink-soft); transition:color .2s;}
-  .nav-links a:hover, .nav-links a:focus-visible{color:var(--coral);}
-  .nav-toggle{display:none; background:none; border:1px solid var(--ink); border-radius:4px; padding:8px 10px; font-family:'IBM Plex Mono',monospace; cursor:pointer;}
+/* --- Visual storytelling layer --- */
+.story-photo{position:relative;overflow:hidden;border-radius:22px;background:#dce4ee;min-height:240px}
+.story-photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.photo-empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:28px;color:#53657c;font-size:.82rem;font-weight:700;letter-spacing:.02em}
+.photo-empty code{display:block;margin-top:6px;font-weight:500;color:#718096}
+.caption{position:absolute;left:14px;right:14px;bottom:14px;padding:11px 13px;border-radius:12px;background:rgba(11,25,48,.78);backdrop-filter:blur(10px);color:white;font-size:.78rem;line-height:1.35}
+.research-gallery{display:grid;grid-template-columns:1.4fr .8fr;gap:18px;margin-top:26px}
+.research-gallery .story-photo:first-child{min-height:390px}
+.research-gallery-side{display:grid;gap:18px}
+.research-gallery-side .story-photo{min-height:186px}
+.impact-story{display:grid;grid-template-columns:.9fr 1.1fr;gap:24px;margin-top:26px}
+.hope-collage{display:grid;grid-template-columns:1.2fr .8fr;grid-template-rows:220px 220px;gap:14px}
+.hope-collage .story-photo:first-child{grid-row:1/3}
+.service-gallery{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:16px;margin-bottom:28px}
+.service-gallery .story-photo{min-height:300px}
+.music-photo-wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:16px;margin-top:24px}
+.music-photo-wrap .story-photo{min-height:240px}
+.visual-quote{padding:28px;border-left:3px solid var(--gold);background:rgba(255,255,255,.06);border-radius:0 18px 18px 0;color:#dce7f4;font-size:1.08rem}
+@media(max-width:850px){.research-gallery,.impact-story,.hope-collage,.service-gallery,.music-photo-wrap{grid-template-columns:1fr}.hope-collage{grid-template-rows:auto}.hope-collage .story-photo:first-child{grid-row:auto}.story-photo,.research-gallery .story-photo:first-child,.research-gallery-side .story-photo,.service-gallery .story-photo,.music-photo-wrap .story-photo{min-height:260px}}
 
-  @media (max-width:760px){
-    .nav-links{
-      position:absolute; top:100%; left:0; right:0;
-      background:var(--paper); flex-direction:column; gap:0;
-      border-bottom:1px solid var(--paper-line);
-      max-height:0; overflow:hidden; transition:max-height .3s ease;
-    }
-    .nav-links.open{max-height:320px;}
-    .nav-links li{border-top:1px solid var(--paper-line);}
-    .nav-links a{display:block; padding:14px 32px;}
-    .nav-toggle{display:block;}
-  }
-
-  /* ---------- HERO ---------- */
-  .hero{
-    background:var(--ink);
-    color:var(--paper);
-    position:relative;
-    overflow:hidden;
-  }
-  .hero-inner{
-    max-width:var(--max); margin:0 auto; padding:96px 32px 72px;
-    display:grid; grid-template-columns:1.15fr 0.85fr; gap:48px; align-items:center;
-  }
-  .hero .eyebrow{color:#E7A79E;}
-  .hero h1{
-    font-size:clamp(3rem, 7vw, 5.2rem);
-    color:var(--paper);
-    margin:14px 0 20px;
-    line-height:0.98;
-  }
-  .hero p.lede{
-    font-size:1.15rem; max-width:46ch; color:#D9DCE6; margin:0 0 32px;
-  }
-  .hero-actions{display:flex; gap:16px; flex-wrap:wrap;}
-  .btn{
-    font-family:'IBM Plex Mono', monospace; font-size:0.78rem; letter-spacing:0.06em;
-    text-transform:uppercase; text-decoration:none; padding:13px 22px;
-    border-radius:2px; display:inline-block; transition:transform .15s, background .2s;
-    border:1px solid transparent;
-  }
-  .btn-primary{background:var(--coral); color:#fff;}
-  .btn-primary:hover{transform:translateY(-2px); background:#a83a32;}
-  .btn-ghost{border-color:#6A7590; color:var(--paper);}
-  .btn-ghost:hover{transform:translateY(-2px); border-color:var(--paper);}
-
-  .slide{
-    background:#0F1830; border:1px solid #2B3A5C; border-radius:4px;
-    padding:22px; position:relative;
-  }
-  .slide::before, .slide::after{
-    content:""; position:absolute; width:14px; height:14px;
-    border:1px solid #4A5C82;
-  }
-  .slide::before{top:8px; left:8px; border-right:none; border-bottom:none;}
-  .slide::after{bottom:8px; right:8px; border-left:none; border-top:none;}
-  .slide-label{font-family:'IBM Plex Mono',monospace; font-size:0.68rem; color:#8FA3C7; letter-spacing:0.08em; text-transform:uppercase;}
-  .slide-title{font-family:'Fraunces',serif; font-size:1.15rem; color:var(--paper); margin:10px 0 14px;}
-
-  /* ---------- STATS ---------- */
-  .stats{
-    background:var(--paper-card); border-top:1px solid var(--paper-line); border-bottom:1px solid var(--paper-line);
-  }
-  .stats-grid{
-    max-width:var(--max); margin:0 auto; padding:0 32px;
-    display:grid; grid-template-columns:repeat(4,1fr);
-  }
-  .stat{
-    padding:36px 20px; text-align:left; border-left:1px solid var(--paper-line);
-  }
-  .stat:first-child{border-left:none;}
-  .stat .num{font-family:'Fraunces',serif; font-size:2.2rem; font-weight:600; color:var(--coral);}
-  .stat .label{font-family:'IBM Plex Mono',monospace; font-size:0.68rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-soft); margin-top:4px;}
-  @media (max-width:760px){
-    .stats-grid{grid-template-columns:repeat(2,1fr);}
-    .stat{border-left:none; border-top:1px solid var(--paper-line);}
-    .stat:nth-child(odd){border-left:none;}
-  }
-
-  /* ---------- SECTION GENERIC ---------- */
-  section{padding:96px 0;}
-  .section-head{max-width:640px; margin-bottom:52px;}
-  .section-head h2{font-size:clamp(2rem,4vw,2.6rem); margin-top:10px;}
-  .section-head p{color:var(--ink-soft); margin-top:14px; font-size:1.05rem;}
-  .fade{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease;}
-  .fade.in{opacity:1; transform:translateY(0);}
-
-  /* ---------- RESEARCH ---------- */
-  .research{
-    background:
-      linear-gradient(var(--paper) 1px, transparent 1px) 0 0/100% 34px,
-      var(--paper);
-    position:relative;
-  }
-  .research::before{
-    content:""; position:absolute; inset:0;
-    background-image:
-      linear-gradient(90deg, rgba(22,35,59,0.045) 1px, transparent 1px),
-      linear-gradient(rgba(22,35,59,0.045) 1px, transparent 1px);
-    background-size:34px 34px;
-    pointer-events:none;
-  }
-  .research .wrap{position:relative;}
-  .timeline{display:flex; flex-direction:column; gap:0;}
-  .specimen{
-    display:grid; grid-template-columns:150px 1fr; gap:32px;
-    padding:32px 0; border-top:1px solid var(--paper-line);
-  }
-  .timeline .specimen:last-of-type{border-bottom:1px solid var(--paper-line);}
-  .specimen-date{
-    font-family:'IBM Plex Mono',monospace; font-size:0.8rem; color:var(--teal); font-weight:600; padding-top:4px;
-  }
-  .specimen-card{
-    background:var(--paper-card); border:1px solid var(--paper-line); border-radius:3px; padding:26px 28px; position:relative;
-  }
-  .specimen-tag{
-    font-family:'IBM Plex Mono',monospace; font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase;
-    color:var(--ink-soft); margin-bottom:8px;
-  }
-  .specimen-card h3{font-size:1.3rem; margin-bottom:10px; line-height:1.25;}
-  .specimen-card p{margin:0; color:var(--ink-soft);}
-  .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:52px;}
-  .tag{
-    font-family:'IBM Plex Mono',monospace; font-size:0.72rem; letter-spacing:0.03em;
-    background:#EFE9D8; color:var(--ink); padding:6px 12px; border-radius:20px; border:1px solid var(--paper-line);
-  }
-  .research-awards{
-    margin-top:56px; padding-top:40px; border-top:1px dashed var(--paper-line);
-  }
-  .research-awards h3{font-family:'IBM Plex Mono',monospace; font-size:1.05rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft); font-weight:700; margin-bottom:20px;}
-
-  /* Award photo cards — drop a photo file in /images and it replaces the placeholder automatically */
-  .award-grid{
-    display:grid; grid-template-columns:repeat(4,1fr); gap:20px;
-  }
-  .award-card{
-    background:var(--paper-card); border:1px solid var(--paper-line); border-radius:4px; overflow:hidden;
-  }
-  .award-photo{
-    position:relative; aspect-ratio:4/3; background:#EFE9D8;
-  }
-  .award-photo img{
-    width:100%; height:100%; object-fit:cover; display:block;
-  }
-  .photo-fallback{
-    position:absolute; inset:8px; display:flex; flex-direction:column; align-items:center; justify-content:center;
-    gap:8px; border:1px dashed #C9BE9F; border-radius:2px;
-    font-family:'IBM Plex Mono',monospace; color:var(--ink-soft); text-align:center; padding:10px;
-  }
-  .photo-icon{
-    width:30px; height:30px; border-radius:50%; border:1.5px dashed var(--ink-soft);
-    display:flex; align-items:center; justify-content:center; font-size:1.1rem; line-height:1;
-  }
-  .photo-hint{font-size:0.62rem; letter-spacing:0.02em; word-break:break-all; opacity:0.85;}
-  .award-body{padding:16px 18px;}
-  .award-title{font-family:'Fraunces',serif; font-size:1.02rem; line-height:1.3; margin-bottom:8px;}
-  .award-year{font-family:'IBM Plex Mono',monospace; font-size:0.8rem; color:var(--coral);}
-  @media (max-width:900px){.award-grid{grid-template-columns:repeat(2,1fr);}}
-  @media (max-width:500px){.award-grid{grid-template-columns:1fr;}}
-
-  @media (max-width:700px){
-    .specimen{grid-template-columns:1fr; gap:10px;}
-  }
-
-  /* ---------- LEADERSHIP ---------- */
-  .leadership{background:var(--ink); color:var(--paper);}
-  .leadership .eyebrow{color:#E7A79E;}
-  .leadership .section-head p{color:#B9C0D4;}
-  .lead-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:#2B3A5C; border:1px solid #2B3A5C;}
-  .lead-card{background:var(--ink); padding:30px 26px;}
-  .lead-role{font-family:'IBM Plex Mono',monospace; font-size:0.68rem; letter-spacing:0.07em; text-transform:uppercase; color:var(--gold);}
-  .lead-org{font-family:'Fraunces',serif; font-size:1.25rem; margin:10px 0 10px; line-height:1.2;}
-  .lead-card p{color:#B9C0D4; font-size:0.93rem; margin:0;}
-  @media (max-width:900px){.lead-grid{grid-template-columns:repeat(2,1fr);}}
-  @media (max-width:600px){.lead-grid{grid-template-columns:1fr;}}
-
-  /* ---------- MUSIC ---------- */
-  .music{position:relative; overflow:hidden;}
-  .music-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;}
-  .staff{width:100%; height:auto; opacity:0.9;}
-  .music-body p{color:var(--ink-soft); margin:0 0 16px;}
-  .music-highlights{list-style:none; margin:24px 0 0; padding:0; display:flex; flex-direction:column; gap:14px;}
-  .music-highlights li{
-    display:flex; gap:14px; align-items:baseline; font-size:0.98rem; border-top:1px solid var(--paper-line); padding-top:14px;
-  }
-  .music-highlights li .yr{font-family:'IBM Plex Mono',monospace; color:var(--teal); font-size:0.82rem; min-width:96px;}
-  @media (max-width:800px){.music-grid{grid-template-columns:1fr;}}
-  .music-gallery{
-    display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:48px;
-  }
-  .music-gallery .item-photo{margin-bottom:0;}
-  @media (max-width:900px){.music-gallery{grid-template-columns:repeat(2,1fr);}}
-  @media (max-width:480px){.music-gallery{grid-template-columns:1fr;}}
-
-  /* ---------- SERVICE ---------- */
-  .service{background:var(--paper-card); border-top:1px solid var(--paper-line); border-bottom:1px solid var(--paper-line);}
-  .service-list{display:grid; grid-template-columns:1fr 1fr; gap:0; border-top:1px solid var(--paper-line); border-left:1px solid var(--paper-line);}
-  .service-item{border-right:1px solid var(--paper-line); border-bottom:1px solid var(--paper-line); padding:26px 28px;}
-  .service-item .org{font-family:'Fraunces',serif; font-size:1.1rem; margin-bottom:6px;}
-  .service-item .role{font-family:'IBM Plex Mono',monospace; font-size:0.7rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--coral); margin-bottom:10px;}
-  .service-item p{margin:0; color:var(--ink-soft); font-size:0.92rem;}
-  @media (max-width:700px){.service-list{grid-template-columns:1fr;}}
-
-  /* ---------- HONORS ---------- */
-  .honors-grid{columns:2; column-gap:48px;}
-  .honors-grid ul{list-style:none; margin:0; padding:0;}
-  .honors-grid li{
-    break-inside:avoid; padding:14px 0; border-top:1px solid var(--paper-line); font-size:0.98rem;
-  }
-  @media (max-width:700px){.honors-grid{columns:1;}}
-
-  /* ---------- FOOTER / CONTACT ---------- */
-  footer{background:var(--ink); color:var(--paper); padding:80px 0 40px;}
-  .contact-grid{display:grid; grid-template-columns:1.2fr 1fr; gap:40px; align-items:end; padding-bottom:56px; border-bottom:1px solid #2B3A5C;}
-  footer h2{color:var(--paper); font-size:clamp(2rem,5vw,3rem);}
-  footer .eyebrow{color:#E7A79E;}
-  .contact-links{display:flex; flex-direction:column; gap:14px; font-family:'IBM Plex Mono',monospace; font-size:0.95rem;}
-  .contact-links a{text-decoration:none; border-bottom:1px solid #4A5C82; padding-bottom:2px; width:fit-content;}
-  .contact-links a:hover{border-color:var(--coral); color:#F0A79E;}
-  .fine{display:flex; justify-content:space-between; padding-top:28px; font-family:'IBM Plex Mono',monospace; font-size:0.72rem; color:#8291AE; flex-wrap:wrap; gap:10px;}
-  @media (max-width:700px){.contact-grid{grid-template-columns:1fr;}}
-
-  /* ---------- ITEM PHOTOS (upload-ready, reused on research/leadership/service cards) ---------- */
-  .item-photo{
-    position:relative; aspect-ratio:4/3; background:#EFE9D8; border-radius:4px;
-    margin-bottom:16px; overflow:hidden;
-  }
-  .item-photo img{width:100%; height:100%; object-fit:cover; display:block;}
-  .item-photo.dark{background:#0F1830;}
-  .item-photo.dark .photo-fallback{border-color:#4A5C82; color:#B9C0D4;}
-
-  @media (prefers-reduced-motion:reduce){
-    html{scroll-behavior:auto;}
-    .fade{opacity:1; transform:none; transition:none;}
-  }
 </style>
 </head>
 <body>
+<nav><div class="wrap nav"><div class="brand">ELLIE KIM</div><div class="links"><a href="#research">Research</a><a href="#impact">Impact</a><a href="#service">Service</a><a href="#music">Music</a><a href="#honors">Honors</a><a href="#contact">Contact</a></div></div></nav>
 
-<header class="site-nav">
-  <div class="nav-inner">
-    <div class="nav-mark">Ellie Kim</div>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">Menu</button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#research">Research</a></li>
-      <li><a href="#leadership">Leadership</a></li>
-      <li><a href="#music">Music</a></li>
-      <li><a href="#service">Service</a></li>
-      <li><a href="#honors">Honors</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
+<header class="hero">
+<div class="wrap hero-grid">
+<div>
+<div class="kicker">Little Rock, Arkansas · Class of 2027</div>
+<h1>Science with<br>human impact.</h1>
+<p class="lede">I’m Ellie Kim — an independent student researcher, nonprofit founder, community health leader, and violinist exploring how science and service can improve people’s lives.</p>
+<div class="hero-buttons"><a class="btn primary" href="#research">Explore my work</a><a class="btn secondary" href="mailto:elliekwonkim@gmail.com">Get in touch</a></div>
+</div>
+<div class="identity-card">
+<div class="portrait">
+<img src="images/ellie-portrait.jpg" alt="Portrait of Ellie Kim" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+<div class="placeholder"><strong>Add Ellie's portrait</strong>Save a photo as<br><code>images/ellie-portrait.jpg</code></div>
+</div>
+<div class="identity-meta"><span>Research · Public Health</span><span>Leadership · Service · Music</span></div>
+</div>
+</div>
 </header>
 
-<section class="hero">
-  <div class="hero-inner">
-    <div>
-      <div class="eyebrow">Little Rock, Arkansas — Class of 2027</div>
-      <h1>Ellie Kim</h1>
-      <p class="lede">Cancer biology researcher, orchestral violinist, and nonprofit founder working at the intersection of laboratory science, public health, and community care.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#research">View research log</a>
-        <a class="btn btn-ghost" href="mailto:elliekwonkim@gmail.com">Contact</a>
-      </div>
-    </div>
-    <div class="slide">
-      <div class="slide-label">Specimen · Active study</div>
-      <div class="slide-title">HepG2 liver cancer cells<br>PFOA + arsenic co-exposure</div>
-      <svg viewBox="0 0 260 140" width="100%" height="auto">
-        <circle cx="130" cy="70" r="58" fill="none" stroke="#41567E" stroke-width="1.5"/>
-        <circle cx="130" cy="70" r="42" fill="none" stroke="#2E6E63" stroke-width="1" stroke-dasharray="3 4"/>
-        <circle cx="102" cy="58" r="7" fill="#C1443B" fill-opacity="0.75"/>
-        <circle cx="146" cy="80" r="9" fill="#2E6E63" fill-opacity="0.6"/>
-        <circle cx="128" cy="42" r="5" fill="#B8874F" fill-opacity="0.8"/>
-        <circle cx="158" cy="52" r="4" fill="#C1443B" fill-opacity="0.5"/>
-        <circle cx="108" cy="92" r="6" fill="#41567E" fill-opacity="0.7"/>
-      </svg>
-      <div class="slide-label" style="margin-top:6px;">UAMS · Aug 2023 – Present</div>
-    </div>
-  </div>
-</section>
+<div class="stats"><div class="wrap stat-grid">
+<div class="stat"><div class="num">4.336</div><div class="label">GPA</div></div>
+<div class="stat"><div class="num">1520</div><div class="label">SAT</div></div>
+<div class="stat"><div class="num">17</div><div class="label">AP courses</div></div>
+<div class="stat"><div class="num">2027</div><div class="label">Expected graduation</div></div>
+</div></div>
 
-<div class="stats">
-  <div class="stats-grid">
-    <div class="stat"><div class="num">4.34</div><div class="label">Weighted GPA</div></div>
-    <div class="stat"><div class="num">1540</div><div class="label">SAT</div></div>
-    <div class="stat"><div class="num">1,000+</div><div class="label">Community service hours</div></div>
-    <div class="stat"><div class="num">3</div><div class="label">Research years at UAMS</div></div>
+<section id="research"><div class="wrap">
+<div class="section-head reveal"><div><div class="eyebrow">01 · Research</div><h2>At the bench since 2023.</h2></div><p>Independent research at the University of Arkansas for Medical Sciences focuses on environmental toxicology, cancer biology, and mechanisms of disease — supported by hands-on molecular and cellular techniques.</p></div>
+<div class="feature-grid">
+<article class="feature reveal"><div class="feature-top"><div><div class="eyebrow">Current project</div><h3>Therapeutic Prevention of PFOA-Induced Hepatic Steatosis</h3></div><div class="date">2025 — Present</div></div><p>Investigating the protective mechanism of soybean-derived genistein against PFOA-induced lipid accumulation in HepG2 liver models, with lipid deposition assessed through Oil Red O staining and spectrophotometric quantification.</p><div class="tags"><span class="tag">HepG2</span><span class="tag">PFOA</span><span class="tag">Genistein</span><span class="tag">Oil Red O</span><span class="tag">Spectrophotometry</span></div></article>
+<div class="side-stack">
+<article class="card mini reveal"><div class="date">2023 — 2025</div><h3>Pancreatic Oncogenesis Driven by Arsenic & PFAS Exposure</h3><p>Analyzed physiological shifts and gene-expression changes in human pancreatic cancer cell lines and quantified cytotoxicity and transcriptional dysregulation using MTT assays and qRT-PCR.</p></article>
+<article class="card mini reveal"><div class="eyebrow">Research toolkit</div><h3>Methods & communication</h3><p>Mammalian cell culture · qRT-PCR · MTT assays · Oil Red O · spectrophotometry · immunoblotting · quantitative data analysis · experimental design · poster presentation.</p></article>
+</div></div>
+
+<div class="research-gallery reveal">
+  <div class="story-photo">
+    <img src="images/research-isef.jpg" alt="Ellie presenting her research at a science fair" onerror="this.style.display='none'">
+    <div class="photo-empty">Research / ISEF hero photo<code>images/research-isef.jpg</code></div>
+    <div class="caption"><strong>From bench to presentation.</strong> Translating experimental questions into evidence and scientific communication.</div>
+  </div>
+  <div class="research-gallery-side">
+    <div class="story-photo">
+      <img src="images/research-lab.jpg" alt="Ellie conducting laboratory research" onerror="this.style.display='none'">
+      <div class="photo-empty">Lab action photo<code>images/research-lab.jpg</code></div>
+      <div class="caption">Hands-on molecular and cellular research at UAMS.</div>
+    </div>
+    <div class="story-photo">
+      <img src="images/research-poster.jpg" alt="Ellie with a research poster" onerror="this.style.display='none'">
+      <div class="photo-empty">Poster / award photo<code>images/research-poster.jpg</code></div>
+      <div class="caption">Regeneron ISEF Finalist · 2026</div>
+    </div>
   </div>
 </div>
+</div></section>
 
-<section class="research" id="research">
-  <div class="wrap">
-    <div class="section-head fade">
-      <div class="eyebrow">Research log</div>
-      <h2>Three years at the bench</h2>
-      <p>Since 2023, ongoing work at the University of Arkansas for Medical Sciences tracing how environmental toxicants — PFOA and arsenic — affect cancer cell lines, moving from single-compound assays toward combined-exposure mechanisms.</p>
-    </div>
-
-    <div class="timeline">
-      <div class="specimen fade">
-        <div class="specimen-date">2023 – 2024</div>
-        <div class="specimen-card">
-          <div class="specimen-tag">Project 01 · Pancreatic cancer cell lines</div>
-          <h3>PFOA toxicity in human pancreatic cancer cells</h3>
-          <p>Quantified the cytotoxic effects of PFOA using MTT assays, Oil Red O staining, and spectrophotometric analysis to characterize dose-dependent cell response.</p>
-        </div>
-      </div>
-      <div class="specimen fade">
-        <div class="specimen-date">2024 – 2025</div>
-        <div class="specimen-card">
-          <div class="specimen-tag">Project 02 · Pancreatic cancer cell lines</div>
-          <h3>Arsenic-induced gene expression changes</h3>
-          <p>Analyzed arsenic-driven changes in gene expression in human pancreatic cancer cells using qRT-PCR, pairing lab work with data visualization to communicate findings.</p>
-        </div>
-      </div>
-      <div class="specimen fade">
-        <div class="specimen-date">2025 – Present</div>
-        <div class="specimen-card">
-          <div class="specimen-tag">Project 03 · HepG2 liver cancer cells</div>
-          <h3>PFOA &amp; arsenic synergistic toxicity</h3>
-          <p>Investigating the combined toxicity of PFOA and arsenic on HepG2 liver cancer cell lines to characterize synergistic mechanisms of harm.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="tags fade">
-      <span class="tag">Cell culture</span>
-      <span class="tag">qRT-PCR</span>
-      <span class="tag">MTT assay</span>
-      <span class="tag">Oil Red O staining</span>
-      <span class="tag">Spectrophotometry</span>
-      <span class="tag">Introductory immunoblotting</span>
-      <span class="tag">Scientific poster presentation</span>
-    </div>
-
-    <div class="research-awards fade">
-      <h3>Research recognition</h3>
-      <div class="award-grid">
-        <div class="award-card">
-          <div class="award-photo">
-            <img src="images/SCIENCE_Award.jpg" alt="ISEF Finalist award photo" style="display:none;"
-                 onload="this.style.display='block'; this.nextElementSibling.style.display='none';">
-            <div class="photo-fallback"><span class="photo-icon">+</span><span class="photo-hint">images/SCIENCE_Award.jpg</span></div>
-          </div>
-          <div class="award-body">
-            <div class="award-title">ISEF Finalist, with full scholarship</div>
-            <div class="award-year">2026</div>
-          </div>
-        </div>
-        <div class="award-card">
-          <div class="award-photo">
-            <img src="images/ISEF_EK.jpg" alt="CARSEF Regional Science Fair award photo" style="display:none;"
-                 onload="this.style.display='block'; this.nextElementSibling.style.display='none';">
-            <div class="photo-fallback"><span class="photo-icon">+</span><span class="photo-hint">images/ISEF_EK.jpg</span></div>
-          </div>
-          <div class="award-body">
-            <div class="award-title">CARSEF Regional Science Fair — 1st Place</div>
-            <div class="award-year">2026</div>
-          </div>
-        </div>
-        <div class="award-card">
-          <div class="award-photo">
-            <img src="images/Science F-1.jpg" alt="Society for In Vitro Biology award photo" style="display:none;"
-                 onload="this.style.display='block'; this.nextElementSibling.style.display='none';">
-            <div class="photo-fallback"><span class="photo-icon">+</span><span class="photo-hint">images/Science F-1.jpg</span></div>
-          </div>
-          <div class="award-body">
-            <div class="award-title">Society for In Vitro Biology Award</div>
-            <div class="award-year">2026</div>
-          </div>
-        </div>
-        <div class="award-card">
-          <div class="award-photo">
-            <img src="images/1st -SF.jpg" alt="School Science Fair award photo" style="display:none;"
-                 onload="this.style.display='block'; this.nextElementSibling.style.display='none';">
-            <div class="photo-fallback"><span class="photo-icon">+</span><span class="photo-hint">images/1st -SF.jpg</span></div>
-          </div>
-          <div class="award-body">
-            <div class="award-title">School Science Fair — 1st Place</div>
-            <div class="award-year">2025 &amp; 2026</div>
-          </div>
-        </div>
-      </div>
-    </div>
+<section class="dark-section" id="impact"><div class="wrap">
+<div class="section-head reveal"><div><div class="eyebrow">02 · Leadership & impact</div><h2>Building communities, not just résumés.</h2></div><p>Ellie’s leadership spans health science, service, academics, and culture — with a focus on creating systems that enable other students to participate and lead.</p></div>
+<div class="impact-grid">
+<article class="impact-main reveal"><div><div class="role">Founder & President · Hands of Hope Project</div><div class="big">10,300+</div><h3>Care Kits delivered</h3></div><p>A youth-led 501(c)(3) serving children in hospitals and pediatric care facilities, expanded to 30+ high school chapters across 15+ states and 5+ countries with 2,000+ student volunteers.</p></article>
+<div class="impact-small reveal">
+<div class="impact-tile"><div class="metric">30+</div><div class="small">High school chapters</div></div>
+<div class="impact-tile"><div class="metric">2,000+</div><div class="small">Student volunteers</div></div>
+<div class="impact-tile"><div class="metric">15+</div><div class="small">U.S. states</div></div>
+<div class="impact-tile"><div class="metric">5+</div><div class="small">Countries</div></div>
+</div></div>
+<div class="impact-story reveal">
+  <div class="visual-quote"><strong>Leadership becomes meaningful when it creates opportunities for other people to participate.</strong><br><br>Hands of Hope grew from a student-led idea into a multi-state, international network serving children and pediatric families.</div>
+  <div class="hope-collage">
+    <div class="story-photo"><img src="images/hope-kits.jpg" alt="Hands of Hope Care Kits" onerror="this.style.display='none'"><div class="photo-empty">Care Kits / group hero photo<code>images/hope-kits.jpg</code></div><div class="caption">10,300+ Care Kits delivered through hospitals, pediatric facilities, and community partners.</div></div>
+    <div class="story-photo"><img src="images/hope-team.jpg" alt="Hands of Hope volunteers" onerror="this.style.display='none'"><div class="photo-empty">Volunteer team photo<code>images/hope-team.jpg</code></div><div class="caption">2,000+ student volunteers.</div></div>
+    <div class="story-photo"><img src="images/hope-event.jpg" alt="Hands of Hope service event" onerror="this.style.display='none'"><div class="photo-empty">Service event photo<code>images/hope-event.jpg</code></div><div class="caption">30+ chapters across 15+ states and 5+ countries.</div></div>
   </div>
-</section>
+</div>
+<div class="lead-grid reveal">
+<div class="lead"><div class="role">President</div><h3>HOSA</h3><p>Helped grow membership from ~5 to 105+ students and mentors 20+ ILC qualifiers.</p></div>
+<div class="lead"><div class="role">President</div><h3>National Beta Club</h3><p>Leads a 430+ member chapter; helped raise $15,000+ and mobilize 5,000+ service hours.</p></div>
+<div class="lead"><div class="role">President</div><h3>Key Club</h3><p>Grew membership from fewer than 5 to 60+ students and raised $5,000+ for community initiatives.</p></div>
+<div class="lead"><div class="role">Vice President</div><h3>National Honor Society</h3><p>Helps lead 300+ members and community drives distributing 5,000+ donated items.</p></div>
+<div class="lead"><div class="role">Community Outreach Director</div><h3>Our Songs Project</h3><p>Directed initiatives creating 500+ handmade cards and coordinated 10+ statewide service projects.</p></div>
+<div class="lead"><div class="role">President</div><h3>Korean Club</h3><p>Leads cultural programming celebrating Korean heritage and expanding cross-cultural participation.</p></div>
+</div></div></section>
 
-<section class="leadership" id="leadership">
-  <div class="wrap">
-    <div class="section-head fade">
-      <div class="eyebrow">Leadership roster</div>
-      <h2>Organizations led</h2>
-      <p>Currently leading seven student organizations across health science, academics, and cultural life — from a 400-member honor society chapter to a nonprofit with international reach.</p>
-    </div>
-    <div class="lead-grid fade">
-      <div class="lead-card">
-        <div class="item-photo dark">
-          <img src="images/HOHP-1.jpg" alt="Hands of Hope Project photo" style="display:none;"
-               onload="this.style.display='block'; this.nextElementSibling.style.display='none';">
-          <div class="photo-fallback"><span class="photo-icon">+</span><span class="photo-hint">images/HOHP-1.jpg</span></div>
-        </div>
-        <div class="lead-role">President &amp; Founder</div>
-        <div class="lead-org"><a href="https://elliekkimscience.github.io/elliekim.github.io/">Hands of Hope Project</a></div>   
-        <p>501(c)(3) nonprofit donating craft kits and care packages to children's hospitals. Grown to 7+ international chapters, 700+ kits donated, 250+ service hours logged.</p>
-      </div>
-      <div class="lead-card">
-        <div class="item-photo dark">
-          <img src="images/HOSA_1.jpg" alt="HOSA photo" style="display:none;"
-               onload="this.style.display='block'; this.nextElementSibling.style.display='none';">
-          <div class="photo-fallback"><span class="photo-icon">+</span><span class="photo-hint">images/HOSA_1.jpg</span></div>
-        </div>
-        <div class="lead-role">President</div>
-        <div class="lead-org">Future Health Professionals (HOSA)</div>
-        <p>Elected to a two-year term leading a nationally recognized health sciences career organization; mentors members for HOSA competitive events.</p>
-      </div>
-      <div class="lead-card">
-        <div class="item-photo dark">
-          <img src="images/leadership-beta.jpg" alt="National Beta Club photo" style="display:none;"
-               onload="this.style.display='block'; this.nextElementSibling.style.display='none';">
-          <div class="photo-fallback"><span class="photo-icon">+</span><span class="photo-hint">images/leadership-beta.jpg</span></div>
-        </div>
-        <div class="lead-role">President</div>
-        <div class="lead-org">National Beta Club</div>
-        <p>Elected by peers to lead a 400+ member chapter, overseeing volunteer projects and community service initiatives school-wide.</p>
-      </div>
-      <div class="lead-card">
-        <div class="item-photo dark">
-          <img src="images/leadership-keyclub.jpg" alt="Key Club photo" style="display:none;"
-               onload="this.style.display='block'; this.nextElementSibling.style.display='none';">
-          <div class="photo-fallback"><span class="photo-icon">+</span><span class="photo-hint">images/leadership-keyclub.jpg</span></div>
-        </div>
-        <div class="lead-role">President</div>
-        <div class="lead-org">Key Club</div>
-        <p>Elected by peers to lead a 30+ member chapter, coordinating community service and academic-excellence programming.</p>
-      </div>
-      <div class="lead-card">
-        <div class="item-photo dark">
-          <img src="images/leadership-nhs.jpg" alt="National Honor Society photo" style="display:none;"
-               onload="this.style.display='block'; this.nextElementSibling.style.display='none';">
-          <div class="photo-fallback"><span class="photo-icon">+</span><span class="photo-hint">images/leadership-nhs.jpg</span></div>
-        </div>
-        <div class="lead-role">Vice President</div>
-        <div class="lead-org">National Honor Society</div>
-        <p>Helps lead a 300+ member chapter, overseeing mentoring programs and civic leadership events.</p>
-      </div>
-      <div class="lead-card">
-        <div class="item-photo dark">
-          <img src="images/leadership-korean.jpg" alt="Korean Club photo" style="display:none;"
-               onload="this.style.display='block'; this.nextElementSibling.style.display='none';">
-          <div class="photo-fallback"><span class="photo-icon">+</span><span class="photo-hint">images/leadership-korean.jpg</span></div>
-        </div>
-        <div class="lead-role">President</div>
-        <div class="lead-org">Korean Club</div>
-        <p>Leads monthly cultural events celebrating Korean heritage and fostering cross-cultural awareness among the student body.</p>
-      </div>
-    </div>
-  </div>
-</section>
+<section id="service"><div class="wrap">
+<div class="section-head reveal"><div><div class="eyebrow">03 · Community service</div><h2>Showing up, week after week.</h2></div><p>Service work centers on children, patients, health education, inclusion, and STEM mentorship across the Little Rock community.</p></div>
 
-<section class="music" id="music">
-  <div class="wrap">
-    <div class="music-grid">
-      <div class="music-body fade">
-        <div class="eyebrow">Performance</div>
-        <h2>Thirteen years of violin</h2>
-        <p>1st Violinist with the Arkansas Symphony Youth Orchestra since an 8th-grade competitive audition, with recognition at the All-Region and All-State level.</p>
-        <ul class="music-highlights">
-          <li><span class="yr">Dec 2024</span><span>Featured guest soloist at a City of Little Rock–sponsored public downtown event.</span></li>
-          <li><span class="yr">2023 – Present</span><span>1st Violinist, Arkansas Symphony Youth Orchestra; weekly rehearsals and public concerts.</span></li>
-          <li><span class="yr">2022 – Present</span><span>Performs recitals for residents at Presbyterian Village Nursing Home.</span></li>
-          <li><span class="yr">Recognition</span><span>All-Region and All-State Orchestra selection.</span></li>
-        </ul>
-      </div>
-      <svg class="staff fade" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
-        <g stroke="#41567E" stroke-width="1" opacity="0.55">
-          <line x1="10" y1="30" x2="390" y2="30"/>
-          <line x1="10" y1="55" x2="390" y2="55"/>
-          <line x1="10" y1="80" x2="390" y2="80"/>
-          <line x1="10" y1="105" x2="390" y2="105"/>
-          <line x1="10" y1="130" x2="390" y2="130"/>
-        </g>
-        <g stroke="#41567E" stroke-width="1" opacity="0.3">
-          <line x1="10" y1="150" x2="390" y2="150"/>
-          <line x1="10" y1="175" x2="390" y2="175"/>
-          <line x1="10" y1="200" x2="390" y2="200"/>
-        </g>
-        <circle cx="60" cy="90" r="6" fill="#C1443B"/>
-        <circle cx="120" cy="60" r="6" fill="#2E6E63"/>
-        <circle cx="180" cy="105" r="6" fill="#B8874F"/>
-        <circle cx="240" cy="70" r="6" fill="#C1443B"/>
-        <circle cx="300" cy="45" r="6" fill="#2E6E63"/>
-        <circle cx="350" cy="90" r="6" fill="#B8874F"/>
-      </svg>
-    </div>
+<div class="service-gallery reveal">
+  <div class="story-photo"><img src="images/service-aldersgate.jpg" alt="Camp Aldersgate service" onerror="this.style.display='none'"><div class="photo-empty">Camp Aldersgate photo<code>images/service-aldersgate.jpg</code></div><div class="caption">500+ hours supporting children with disabilities and health conditions.</div></div>
+  <div class="story-photo"><img src="images/service-baptist.jpg" alt="Baptist Health volunteer service" onerror="this.style.display='none'"><div class="photo-empty">Baptist Health photo<code>images/service-baptist.jpg</code></div><div class="caption">Postpartum unit volunteer · 120+ hours.</div></div>
+  <div class="story-photo"><img src="images/service-health.jpg" alt="Peer health education" onerror="this.style.display='none'"><div class="photo-empty">Health education photo<code>images/service-health.jpg</code></div><div class="caption">Peer health education reaching 300+ freshmen.</div></div>
+</div>
+<div class="service-grid">
+<article class="card service-card reveal"><div class="metric">500+</div><h3>Camp Aldersgate</h3><p>Hours supporting 65+ children with disabilities and health conditions through individualized assistance, safety, inclusion, and confidence-building.</p></article>
+<article class="card service-card reveal"><div class="metric">120+</div><h3>Baptist Health</h3><p>Hours supporting nurses, postpartum patients, newborn families, and delivering 500+ baby celebration cakes.</p></article>
+<article class="card service-card reveal"><div class="metric">150+</div><h3>Health Information Project</h3><p>Service hours delivering peer-led health education and multi-week wellness programming to 300+ freshmen.</p></article>
+<article class="card service-card reveal"><div class="metric">STEM</div><h3>Research Mentor</h3><p>Mentors student science-fair projects in cellular and molecular biology, from research questions through data analysis and presentation.</p></article>
+<article class="card service-card reveal"><div class="metric">CBI</div><h3>Best Buddies</h3><p>Serves as Secretary and supports inclusive activities and peer engagement for students with intellectual and developmental disabilities.</p></article>
+<article class="card service-card reveal"><div class="metric">Science</div><h3>Museum of Discovery</h3><p>Guides children through hands-on STEM activities and experiments in safe, inclusive summer learning programs.</p></article>
+</div></div></section>
 
-    <div class="music-gallery fade">
-      <div class="item-photo">
-        <img src="images/music-1.jpg" alt="Violin performance photo 1" style="display:none;"
-             onload="this.style.display='block'; this.nextElementSibling.style.display='none';">
-        <div class="photo-fallback"><span class="photo-icon">+</span><span class="photo-hint">images/music-1.jpg</span></div>
-      </div>
-      <div class="item-photo">
-        <img src="images/music-2.jpg" alt="Violin performance photo 2" style="display:none;"
-             onload="this.style.display='block'; this.nextElementSibling.style.display='none';">
-        <div class="photo-fallback"><span class="photo-icon">+</span><span class="photo-hint">images/music-2.jpg</span></div>
-      </div>
-      <div class="item-photo">
-        <img src="images/music-3.jpg" alt="Violin performance photo 3" style="display:none;"
-             onload="this.style.display='block'; this.nextElementSibling.style.display='none';">
-        <div class="photo-fallback"><span class="photo-icon">+</span><span class="photo-hint">images/music-3.jpg</span></div>
-      </div>
-      <div class="item-photo">
-        <img src="images/music-4.jpg" alt="Violin performance photo 4" style="display:none;"
-             onload="this.style.display='block'; this.nextElementSibling.style.display='none';">
-        <div class="photo-fallback"><span class="photo-icon">+</span><span class="photo-hint">images/music-4.jpg</span></div>
-      </div>
-    </div>
-  </div>
-</section>
+<section id="music"><div class="wrap"><div class="music-band reveal">
+<div>
+<div class="story-photo" style="min-height:390px"><img src="images/music-performance.jpg" alt="Ellie performing violin" onerror="this.style.display='none'"><div class="photo-empty">Featured violin performance photo<code>images/music-performance.jpg</code></div><div class="caption">First Violin · Arkansas Symphony Youth Orchestra</div></div>
+<div class="music-photo-wrap">
+<div class="story-photo"><img src="images/music-orchestra.jpg" alt="Arkansas Symphony Youth Orchestra" onerror="this.style.display='none'"><div class="photo-empty">Orchestra photo<code>images/music-orchestra.jpg</code></div></div>
+<div class="story-photo"><img src="images/music-solo.jpg" alt="Ellie featured solo performance" onerror="this.style.display='none'"><div class="photo-empty">Solo performance photo<code>images/music-solo.jpg</code></div></div>
+</div>
+</div>
+<div class="music-copy"><div class="eyebrow">04 · Music</div><h2>Thirteen years of violin.</h2><p>Selected through competitive audition for the Arkansas Symphony Youth Orchestra, with sustained ensemble performance and All-Region and All-State recognition.</p><div class="music-list"><div><strong>Arkansas Symphony Youth Orchestra</strong> · First Violin Section · 2023–Present</div><div><strong>Featured soloist</strong> · City of Little Rock-sponsored downtown event · Dec 2024</div><div><strong>Recognition</strong> · Arkansas All-State & All-Region Orchestra · 2023–2026</div></div></div>
+</div></div></section>
 
-<section class="service" id="service">
-  <div class="wrap">
-    <div class="section-head fade">
-      <div class="eyebrow">Service record</div>
-      <h2>Where the hours went</h2>
-      <p>Recurring, hands-on service work with children, patients, and peers across Little Rock — most of it returned to week after week rather than one-off.</p>
-    </div>
-    <div class="service-list fade">
-      <div class="service-item">
-        <div class="org">Camp Aldersgate</div>
-        <div class="role">Assistant Counselor · 500+ hrs</div>
-        <p>Supports children ages 9–14 with epilepsy, ADHD, autism, and asthma across multiple weeklong sessions.</p>
-      </div>
-      <div class="service-item">
-        <div class="org">Museum of Discovery</div>
-        <div class="role">Camp Counselor</div>
-        <p>Leads weeklong summer camp sessions for children, focused on safety, inclusion, and hands-on engagement.</p>
-      </div>
-      <div class="service-item">
-        <div class="org">Baptist Health</div>
-        <div class="role">Volunteer · 150+ hrs</div>
-        <p>Participates in peer-led health education and patient support initiatives.</p>
-      </div>
-      <div class="service-item">
-        <div class="org">Health Information Project</div>
-        <div class="role">Volunteer Educator · 100+ hrs</div>
-        <p>Delivers health lessons to freshmen at Little Rock Central High School as a trained peer educator.</p>
-      </div>
-      <div class="service-item">
-        <div class="org">Best Buddies</div>
-        <div class="role">Secretary</div>
-        <p>Supports program logistics and communications for a peer-friendship organization.</p>
-      </div>
-      <div class="service-item">
-        <div class="org">UAMS Cancer Institute Walk</div>
-        <div class="role">Volunteer · May 2023 &amp; 2024</div>
-        <p>Supported event logistics and engaged directly with cancer survivors and their families.</p>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="honors" id="honors"><div class="wrap">
+<div class="section-head reveal"><div><div class="eyebrow">05 · Recognition</div><h2>Selected honors.</h2></div><p>Research, health-science, music, academic, and professional recognition from regional, state, national, and international programs.</p></div>
+<div class="honor-grid reveal">
+<div class="honor"><div class="year">2026</div><div><strong>Regeneron ISEF Finalist</strong><span>Fully Funded Participant</span></div></div>
+<div class="honor"><div class="year">2026</div><div><strong>CARSEF — 1st Place</strong><span>Cellular & Molecular Biology</span></div></div>
+<div class="honor"><div class="year">2026</div><div><strong>Society for In Vitro Biology</strong><span>Best Overall Project Award</span></div></div>
+<div class="honor"><div class="year">2026</div><div><strong>Office of Naval Research Award</strong><span>One of 5 students selected</span></div></div>
+<div class="honor"><div class="year">2026</div><div><strong>HOSA ILC</strong><span>Finalist</span></div></div>
+<div class="honor"><div class="year">2026</div><div><strong>HOSA SLC</strong><span>2nd Place · Prepared Speaking</span></div></div>
+<div class="honor"><div class="year">23–26</div><div><strong>All-State & All-Region Orchestra</strong><span>Selected Violinist</span></div></div>
+<div class="honor"><div class="year">24</div><div><strong>TOPIK</strong><span>Level II</span></div></div>
+</div>
+<div style="margin-top:45px"><div class="eyebrow">Skills & languages</div><div class="skills"><span class="skill">Korean · Fluent</span><span class="skill">Chinese · Intermediate</span><span class="skill">Cell Culture</span><span class="skill">qRT-PCR</span><span class="skill">MTT Assays</span><span class="skill">Spectrophotometry</span><span class="skill">Immunoblotting</span><span class="skill">Scientific Data Analysis</span><span class="skill">Poster Presentation</span><span class="skill">Web Editing</span></div></div>
+</div></section>
 
-<section id="honors">
-  <div class="wrap">
-    <div class="section-head fade">
-      <div class="eyebrow">Honors</div>
-      <h2>Additional awards</h2>
-    </div>
-    <div class="honors-grid fade">
-      <ul>
-        <li>HOSA International Leadership Conference — 1st Place, 2026</li>
-        <li>HOSA ILC Finalist with scholarship, 2026</li>
-        <li>HOSA State Leadership Conference — 2nd Place</li>
-        <li>Model UN — Best Position Paper &amp; Honorable Mention, 2024–2025</li>
-        <li>TOPIK Korean Language Proficiency Test — Level II</li>
-        <li>U.S. Soccer Referee Certification (FIFA)</li>
-        <li>National Honor Society &amp; National Beta Club</li>
-        <li>President's Award for Academic Excellence</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<footer id="contact">
-  <div class="wrap">
-    <div class="contact-grid">
-      <div>
-        <div class="eyebrow">Get in touch</div>
-        <h2>Let's talk research,<br>music, or service.</h2>
-      </div>
-      <div class="contact-links">
-        <a href="mailto:elliekwonkim@gmail.com">elliekwonkim@gmail.com</a>
-        <a href="#">Résumé (PDF) — link here</a>
-        <a href="https://elliekkimscience.github.io/elliekim.github.io/">Hands of Hope Project </a>
-        <span style="color:#8291AE; font-size:0.9rem; font-family:'Source Sans 3',sans-serif;">Little Rock, Arkansas</span>
-      </div>
-    </div>
-    <div class="fine">
-      <span>© 2026 Ellie Kim</span>
-      <span>Template — swap in a headshot, live links, and research photos before publishing.</span>
-    </div>
-  </div>
-</footer>
+<footer id="contact"><div class="wrap"><div class="footer-grid"><div><div class="eyebrow" style="color:#a9c5e5">Contact</div><h2>Curious about science.<br>Committed to service.</h2></div><div class="contact"><a href="mailto:elliekwonkim@gmail.com">elliekwonkim@gmail.com</a><span>Little Rock, Arkansas</span><a href="resume/Ellie_Kim_Resume.pdf">Download résumé (PDF)</a></div></div><div class="fine"><span>© 2026 Ellie Kim</span><span>Research · Leadership · Service · Music</span></div></div></footer>
 
 <script>
-  const toggle = document.getElementById('navToggle');
-  const links = document.getElementById('navLinks');
-  toggle.addEventListener('click', () => links.classList.toggle('open'));
-  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
-
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(!reduce && 'IntersectionObserver' in window){
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, {threshold:0.12});
-    document.querySelectorAll('.fade').forEach(el=>io.observe(el));
-  } else {
-    document.querySelectorAll('.fade').forEach(el=>el.classList.add('in'));
-  }
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');observer.unobserve(e.target)}}),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 </script>
-
-</body>
-</html>
+</body></html>
