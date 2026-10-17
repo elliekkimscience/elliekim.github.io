@@ -81,6 +81,16 @@ footer{background:#0b1930;color:white;padding:70px 0 32px}.footer-grid{display:g
 .hope-link-text{font-weight:800;font-size:.95rem}.hope-link-text small{display:block;font-size:.75rem;font-weight:500;color:#dce7f4}
 .referee-layout{display:grid;grid-template-columns:1.15fr .85fr;gap:24px;align-items:stretch}.referee-layout .feature{height:100%}.referee-photo{min-height:360px}
 @media(max-width:850px){.referee-layout{grid-template-columns:1fr}.referee-photo{min-height:320px}}
+
+/* Two-column hero: headline left, landscape portfolio image right. */
+.hero-grid{display:grid;grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);gap:34px;align-items:center;min-height:620px;padding:64px 0 92px}
+.hero-grid > div:first-child{min-width:0;max-width:510px}
+.hero h1{font-size:clamp(3.4rem,5.6vw,5.7rem);line-height:.97}
+.hero .lede{font-size:1.08rem}
+.hero-wide-frame{width:100%;max-width:none;margin:0;border-radius:22px;overflow:hidden;background:#10213f;border:1px solid rgba(255,255,255,.18);box-shadow:0 22px 55px rgba(0,0,0,.22)}
+.hero-wide-frame img{display:block;width:100%;height:auto;aspect-ratio:3 / 2;object-fit:contain;object-position:center}
+@media(max-width:850px){.hero-grid{grid-template-columns:1fr;min-height:0;padding:54px 0 78px;gap:30px}.hero-grid > div:first-child{max-width:650px}.hero-wide-frame{max-width:700px;border-radius:16px}}
+@media(max-width:560px){.hero-grid{padding:42px 0 68px;gap:24px}.hero h1{font-size:clamp(3rem,13vw,4rem)}.hero-wide-frame{border-radius:12px}}
 </style>
 </head>
 <body>
@@ -93,20 +103,8 @@ footer{background:#0b1930;color:white;padding:70px 0 32px}.footer-grid{display:g
 <p class="lede">I’m Ellie Kim — an independent student researcher, nonprofit founder, community health leader, and violinist exploring how science and service can improve people’s lives.</p>
 <div class="hero-buttons"><a class="btn primary" href="#research">Explore my work</a><a class="btn secondary" href="mailto:elliekwonkim@gmail.com">Get in touch</a></div>
 </div>
-<div class="identity-card">
-<div class="portrait" style="width:100%; overflow:hidden; display:flex; justify-content:center; align-items:center;">
-<img alt="Portrait of Ellie Kim" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" src="images/ellie-portrait.jpg.png" style="
-            width:100%;
-            height:100%;
-            object-fit:cover;
-            object-position:50% 50%;
-            display:block;
-            margin:0 auto;
-        "/>
-<div class="placeholder" style="display:none;">
-<strong></strong><br/><code></code>
-</div>
-</div>
+<div class="hero-wide-frame">
+  <img src="images/ellie-portfolio-wide.png" >
 </div>
 </div>
 </header>
@@ -127,7 +125,7 @@ footer{background:#0b1930;color:white;padding:70px 0 32px}.footer-grid{display:g
 <div class="research-gallery reveal">
 <div class="story-photo">
 <img alt="Ellie presenting her research at a science fair" onerror="this.style.display='none'" src="images/research-isef.jpg"/>
-<div class="photo-empty">Research / ISEF hero photo</div>
+
 <div class="caption"><strong>From bench to presentation.</strong> Translating experimental questions into evidence and scientific communication.</div>
 </div>
 <div class="research-gallery-side">
